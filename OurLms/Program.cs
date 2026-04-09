@@ -36,6 +36,6 @@ class Teacher : User
 
     public void GradeAssigment() 
     {
-        Console.WriteLine($"{Name} has graded the assignment.";
+        Console.WriteLine($"{Name} has graded the assignment.");
     }
 }
