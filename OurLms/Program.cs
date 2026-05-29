@@ -1,7 +1,7 @@
 ﻿using System;
 
-Student student1 = new Student("X", "X@gmail.com", "password123", "Student", "Math");
-Teacher teacher1 = new Teacher("Y", "Y@gmail.com", "password456", "Teacher", "Class1");
+Student student1 = new Student("Student", "student@student.school34.sch.id", "123student", "Student", "Math");
+Teacher teacher1 = new Teacher("Teacher", "teacher@teacher.school34.sch.id", "teacher123", "Teacher", "Math Class");
 
 Console.WriteLine("=== Displaying User Information ===");
 // Calling the inherited method from the User base class
@@ -10,8 +10,8 @@ teacher1.DisplayInfo();
 
 Console.WriteLine("=== Executing Class Functions ===");
 // Calling the specific methods for Guru and Siswa
-student1.GradeAssigment();
-teacher1.SubmitAssignment();
+student1.GradeAssigment(teacher1);
+teacher1.SubmitAssignment(student1);
 
 class User
 {
@@ -38,9 +38,9 @@ class Teacher : User
         ClassName = className;
     }
 
-    public void SubmitAssignment()
+    public void SubmitAssignment(Student student)
     {
-        Console.WriteLine($"{Name} has submitted the assignment");
+        Console.WriteLine($"{student.Name} has submitted the assignment");
     }
 }
 
@@ -52,8 +52,8 @@ class Student : User
         Subject = subject;
     }
 
-    public void GradeAssigment() 
+    public void GradeAssigment(Teacher teacher) 
     {
-        Console.WriteLine($"{Name} has graded the assignment.");
+        Console.WriteLine($"{teacher.Name} has graded the assignment.");
     }
 }
